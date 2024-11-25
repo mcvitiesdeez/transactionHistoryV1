@@ -40,10 +40,9 @@ function TransactionHistoryScreen() {
             type: 'debit',
             category: 'Miscellaneous',
         };
-
-        setTransactions((prev) => [newTransaction, ...prev]);
         setRefreshing(true)
         setTimeout(() => {
+            setTransactions((prev) => [newTransaction, ...prev]);
             setRefreshing(false)
         }, 2000)
     }
