@@ -1,10 +1,36 @@
-import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Pressable, Alert } from 'react-native';
+import * as LocalAuthentication from 'expo-local-authentication';
 import transactionData from '../data/transactionData.json';
+import TransactionCard from '../components/TransactionCard';
+import { useState } from 'react';
 
 function TransactionHistoryScreen() {
+    const [revealedTransaction, setRevealedTransaction] = useState<string[]>([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     const handleTransactionPress = () => {
         console.log('Transaction Pressed');
+    }
+
+    const handleRevealAmount = async (transactionID: string) => {
+        if (isAuthenticated) {
+            setRevealedTransaction((prev) => [...prev, transactionID]);
+        } else {
+            const hasHardware = await LocalAuthentication.hasHardwareAsync();
+            if (hasHardware) {
+                const authenticated = await LocalAuthentication.authenticateAsync({
+                    promptMessage: 'Authenticate to access your account',
+                    cancelLabel: 'Cancel',
+                    fallbackLabel: 'Enter PIN',
+                });
+                if (authenticated.success) {
+                    setIsAuthenticated(true);
+                    setRevealedTransaction((prev) => [...prev, transactionID]);
+                } else {
+                    Alert.alert('Authentication Failed', 'Unable to authenticate.');
+                }
+            }
+        }
     }
 
     return (
@@ -17,16 +43,11 @@ function TransactionHistoryScreen() {
                     data={transactionData}
                     keyExtractor={(item) => item.transactionID}
                     renderItem={({ item }) => (
-                        <View style={styles.transactionItem}>
-                            <Pressable onPress={handleTransactionPress} android_ripple={{ color: '#cccccc' }}>
-                                <Text style={styles.transactionText}>{item.date}</Text>
-                                <Text style={styles.transactionText}>{item.description}</Text>
-                                <View style={styles.rowContainer}>
-                                    <Text style={styles.transactionText}>{item.type}</Text>
-                                    <Text style={styles.transactionText}>Amount: RM{item.amount.toFixed(2)}</Text>
-                                </View>
-                            </Pressable>
-                        </View>
+                        <TransactionCard
+                            item={item}
+                            revealedTransaction={revealedTransaction}
+                            onRevealAmount={handleRevealAmount}
+                        />
                     )}
                 />
             </View>
