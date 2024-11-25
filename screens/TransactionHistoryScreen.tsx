@@ -4,7 +4,7 @@ import transactionData from '../data/transactionData.json';
 import TransactionCard from '../components/TransactionCard';
 import { useState } from 'react';
 
-function TransactionHistoryScreen() {
+function TransactionHistoryScreen({ navigation }: { navigation: any }) {
     const [revealedTransaction, setRevealedTransaction] = useState<string[]>([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [refreshing, setRefreshing] = useState(false);
@@ -64,6 +64,7 @@ function TransactionHistoryScreen() {
                             item={item}
                             revealedTransaction={revealedTransaction}
                             onRevealAmount={handleRevealAmount}
+                            navigation={navigation}
                         />
                     )}
                 />

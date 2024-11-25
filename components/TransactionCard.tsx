@@ -11,12 +11,13 @@ interface TransactionCardProps {
     };
     revealedTransaction: string[];
     onRevealAmount: (transactionID: string) => void;
+    navigation: any;
 }
 
-const TransactionCard: React.FC<TransactionCardProps> = ({ item, revealedTransaction, onRevealAmount }) => {
+const TransactionCard: React.FC<TransactionCardProps> = ({ item, revealedTransaction, onRevealAmount, navigation }) => {
 
     const handleTransactionPress = () => {
-        console.log('Transaction Pressed');
+        navigation.navigate('TransactionDetails', { item });
     }
 
     return (
