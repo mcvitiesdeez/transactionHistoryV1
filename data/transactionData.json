@@ -1,0 +1,162 @@
+[
+    {
+        "transactionID": "1",
+        "date": "2024-11-01",
+        "amount": 45.99,
+        "description": "Grocery shopping at Walmart",
+        "type": "debit",
+        "category": "Grocery"
+    },
+    {
+        "transactionID": "2",
+        "date": "2024-11-02",
+        "amount": 1200,
+        "description": "Monthly salary",
+        "type": "credit",
+        "category": "Income"
+    },
+    {
+        "transactionID": "3",
+        "date": "2024-11-03",
+        "amount": 8.5,
+        "description": "Coffee at Starbucks",
+        "type": "debit",
+        "category": "Food"
+    },
+    {
+        "transactionID": "4",
+        "date": "2024-11-04",
+        "amount": 60,
+        "description": "Dinner at Olive Garden",
+        "type": "debit",
+        "category": "Food"
+    },
+    {
+        "transactionID": "5",
+        "date": "2024-11-05",
+        "amount": 300,
+        "description": "Freelance project payment",
+        "type": "credit",
+        "category": "Income"
+    },
+    {
+        "transactionID": "6",
+        "date": "2024-11-06",
+        "amount": 75.5,
+        "description": "Clothing purchase at H&M",
+        "type": "debit",
+        "category": "Retail"
+    },
+    {
+        "transactionID": "7",
+        "date": "2024-11-07",
+        "amount": 15,
+        "description": "Netflix subscription",
+        "type": "debit",
+        "category": "Entertainment"
+    },
+    {
+        "transactionID": "8",
+        "date": "2024-11-08",
+        "amount": 200,
+        "description": "Gift from parents",
+        "type": "credit",
+        "category": "Income"
+    },
+    {
+        "transactionID": "9",
+        "date": "2024-11-09",
+        "amount": 120.75,
+        "description": "Utility bill payment",
+        "type": "debit",
+        "category": "Bills"
+    },
+    {
+        "transactionID": "10",
+        "date": "2024-11-10",
+        "amount": 50,
+        "description": "Taxi fare",
+        "type": "debit",
+        "category": "Transport"
+    },
+    {
+        "transactionID": "11",
+        "date": "2024-11-11",
+        "amount": 25,
+        "description": "Movie tickets",
+        "type": "debit",
+        "category": "Entertainment"
+    },
+    {
+        "transactionID": "12",
+        "date": "2024-11-12",
+        "amount": 500,
+        "description": "Bonus from work",
+        "type": "credit",
+        "category": "Income"
+    },
+    {
+        "transactionID": "13",
+        "date": "2024-11-13",
+        "amount": 35.99,
+        "description": "Groceries at Whole Foods",
+        "type": "debit",
+        "category": "Grocery"
+    },
+    {
+        "transactionID": "14",
+        "date": "2024-11-14",
+        "amount": 19.99,
+        "description": "Amazon purchase",
+        "type": "debit",
+        "category": "Retail"
+    },
+    {
+        "transactionID": "15",
+        "date": "2024-11-15",
+        "amount": 100,
+        "description": "Cash withdrawal from ATM",
+        "type": "debit",
+        "category": "Cash"
+    },
+    {
+        "transactionID": "16",
+        "date": "2024-11-16",
+        "amount": 250,
+        "description": "Stock dividends",
+        "type": "credit",
+        "category": "Investment"
+    },
+    {
+        "transactionID": "17",
+        "date": "2024-11-17",
+        "amount": 89.5,
+        "description": "Gasoline purchase",
+        "type": "debit",
+        "category": "Transport"
+    },
+    {
+        "transactionID": "18",
+        "date": "2024-11-18",
+        "amount": 14.99,
+        "description": "Spotify subscription",
+        "type": "debit",
+        "category": "Entertainment"
+    },
+    {
+        "transactionID": "19",
+        "date": "2024-11-19",
+        "amount": 450,
+        "description": "Freelance writing project",
+        "type": "credit",
+        "category": "Income"
+    },
+    {
+        "transactionID": "20",
+        "date": "2024-11-20",
+        "amount": 65,
+        "description": "Dinner at a local restaurant",
+        "type": "debit",
+        "category": "Food"
+    }
+]
