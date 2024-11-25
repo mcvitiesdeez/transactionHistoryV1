@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, Pressable, Alert } from 'react-native';
+import { View, Text, StyleSheet, FlatList, RefreshControl, Alert } from 'react-native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import transactionData from '../data/transactionData.json';
 import TransactionCard from '../components/TransactionCard';
@@ -7,10 +7,8 @@ import { useState } from 'react';
 function TransactionHistoryScreen() {
     const [revealedTransaction, setRevealedTransaction] = useState<string[]>([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false)
-
-    const handleTransactionPress = () => {
-        console.log('Transaction Pressed');
-    }
+    const [refreshing, setRefreshing] = useState(false);
+    const [transactions, setTransactions] = useState(transactionData);
 
     const handleRevealAmount = async (transactionID: string) => {
         if (isAuthenticated) {
@@ -33,6 +31,23 @@ function TransactionHistoryScreen() {
         }
     }
 
+    const handleRefresh = () => {
+        const newTransaction = {
+            transactionID: (transactions.length + 1).toString(),
+            date: '2024-11-25',
+            amount: Math.random() * 500,
+            description: 'New Transaction',
+            type: 'debit',
+            category: 'Miscellaneous',
+        };
+
+        setTransactions((prev) => [newTransaction, ...prev]);
+        setRefreshing(true)
+        setTimeout(() => {
+            setRefreshing(false)
+        }, 2000)
+    }
+
     return (
         <View style={styles.appContainer}>
             <View style={styles.titleContainer}>
@@ -40,8 +55,11 @@ function TransactionHistoryScreen() {
             </View>
             <View style={styles.transactionContainer}>
                 <FlatList
-                    data={transactionData}
+                    data={transactions}
                     keyExtractor={(item) => item.transactionID}
+                    refreshControl={
+                        <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+                    }
                     renderItem={({ item }) => (
                         <TransactionCard
                             item={item}
