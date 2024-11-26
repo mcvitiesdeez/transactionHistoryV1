@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-    Welcome: undefined;
+    Home: undefined;
     TransactionHistory: undefined;
     TransactionDetails: {
         item: {

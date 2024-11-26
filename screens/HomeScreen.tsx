@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Alert, Button } from 'react-native';
 import * as LocalAuthentication from 'expo-local-authentication';
 
-function WelcomeScreen({ navigation }: { navigation: any }) {
+function HomeScreen({ navigation }: { navigation: any }) {
 
     const handleLogin = async () => {
         const hasHardware = await LocalAuthentication.hasHardwareAsync();
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default WelcomeScreen;
+export default HomeScreen;
