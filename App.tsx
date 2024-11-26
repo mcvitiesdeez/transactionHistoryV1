@@ -1,12 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { RootStackParamList } from './types';
+
 //Screens
 import WelcomeScreen from './screens/WelcomeScreen';
 import TransactionHistoryScreen from './screens/TransactionHistoryScreen';
 import TransactionDetailsScreen from './screens/TransactionDetailsScreen';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
