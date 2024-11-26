@@ -9,15 +9,16 @@ const TransactionDetailsScreen: React.FC<DetailsScreenProps> = ({ route }) => {
     return (
         <View style={styles.appContainer}>
             <View style={styles.titleContainer}>
-                <Text style={styles.titleText}>Transaction Details</Text>
+                <Text style={styles.titleText}>Transaction Details #{item.transactionID}</Text>
             </View>
             <View style={styles.contentContainer}>
-                <Text style={styles.contentText}>Transaction ID: {item.transactionID}</Text>
-                <Text style={styles.contentText}>Date: {item.date}</Text>
-                <Text style={styles.contentText}>Amount: RM{item.amount.toFixed(2)}</Text>
+                <View style={styles.dateContainer}>
+                    <Text style={styles.dateText}>{item.date}</Text>
+                </View>
                 <Text style={styles.contentText}>Description: {item.description}</Text>
                 <Text style={styles.contentText}>Type: {item.type}</Text>
                 <Text style={styles.contentText}>Category: {item.category}</Text>
+                <Text style={styles.amountText}>Amount: RM{item.amount.toFixed(2)}</Text>
             </View>
         </View>
     );
@@ -41,11 +42,32 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
     },
+    dateContainer: {
+        margin: 8,
+        borderRadius: 6,
+        backgroundColor: '#003049',
+        fontWeight: 'bold',
+
+    },
+    dateText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#fdf0d5',
+        paddingVertical: 4,
+        paddingHorizontal: 8,
+    },
     contentContainer: {
         flex: 8,
     },
     contentText: {
         fontSize: 26,
+    },
+    amountText: {
+        marginTop: 16,
+        fontSize: 26,
+        color: '#c1121f',
+        borderTopWidth: 1,
+        borderTopColor: '#cccccc',
     }
 });
 
