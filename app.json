@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "transactionHistoryV1",
+    "name": "Transaction History Module (Tjun)",
     "slug": "transactionHistoryV1",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,16 +13,23 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mcvitiesdeez.transactionHistoryV1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.mcvitiesdeez.transactionHistoryV1"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d191628a-a3b2-405c-8841-b682cc076bad"
+      }
     }
   }
 }
